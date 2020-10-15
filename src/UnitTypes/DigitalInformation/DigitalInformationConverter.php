@@ -39,8 +39,10 @@ class DigitalInformationConverter implements DigitalInformationConverterInterfac
         $value = $from->getValue();
         if ($from instanceof BitInterface && is_subclass_of($to, ByteInterface::class)) {
             $value /= 8;
-        } else if ($from instanceof ByteInterface && is_subclass_of($to, BitInterface::class)) {
-            $value *= 8;
+        } else {
+            if ($from instanceof ByteInterface && is_subclass_of($to, BitInterface::class)) {
+                $value *= 8;
+            }
         }
 
         return $value / pow(2, $to::EXPONENT - $from::EXPONENT);

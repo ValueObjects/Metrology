@@ -20,8 +20,10 @@ abstract class AbstractTemperature extends AbstractMetrology implements Temperat
     {
         if ($calculator !== null) {
             $this->calculator = new $calculator($this);
-        } else if ($this->calculator === null) {
-            $this->calculator = new TemperatureCalculator($this);
+        } else {
+            if ($this->calculator === null) {
+                $this->calculator = new TemperatureCalculator($this);
+            }
         }
 
         return $this->calculator;
@@ -31,8 +33,10 @@ abstract class AbstractTemperature extends AbstractMetrology implements Temperat
     {
         if ($comparator !== null) {
             $this->comparator = new $comparator($this);
-        } else if ($this->comparator === null) {
-            $this->comparator = new TemperatureComparator($this);
+        } else {
+            if ($this->comparator === null) {
+                $this->comparator = new TemperatureComparator($this);
+            }
         }
 
         return $this->comparator;
@@ -42,8 +46,10 @@ abstract class AbstractTemperature extends AbstractMetrology implements Temperat
     {
         if ($converter !== null) {
             $this->converter = new $converter($this);
-        } else if ($this->converter === null) {
-            $this->converter = new TemperatureConverter($this);
+        } else {
+            if ($this->converter === null) {
+                $this->converter = new TemperatureConverter($this);
+            }
         }
 
         return $this->converter;
@@ -53,8 +59,10 @@ abstract class AbstractTemperature extends AbstractMetrology implements Temperat
     {
         if ($observerManager !== null) {
             $this->observerManager = new $observerManager($this);
-        } else if ($this->observerManager === null) {
-            $this->observerManager = new TemperatureObserverManager($this);
+        } else {
+            if ($this->observerManager === null) {
+                $this->observerManager = new TemperatureObserverManager($this);
+            }
         }
 
         return $this->observerManager;

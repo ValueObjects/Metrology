@@ -20,8 +20,10 @@ abstract class AbstractDigitalInformation extends AbstractMetrology implements D
     {
         if ($calculator !== null) {
             $this->calculator = new $calculator($this);
-        } else if ($this->calculator === null) {
-            $this->calculator = new DigitalInformationCalculator($this);
+        } else {
+            if ($this->calculator === null) {
+                $this->calculator = new DigitalInformationCalculator($this);
+            }
         }
 
         return $this->calculator;
@@ -31,8 +33,10 @@ abstract class AbstractDigitalInformation extends AbstractMetrology implements D
     {
         if ($comparator !== null) {
             $this->comparator = new $comparator($this);
-        } else if ($this->comparator === null) {
-            $this->comparator = new DigitalInformationComparator($this);
+        } else {
+            if ($this->comparator === null) {
+                $this->comparator = new DigitalInformationComparator($this);
+            }
         }
 
         return $this->comparator;
@@ -42,8 +46,10 @@ abstract class AbstractDigitalInformation extends AbstractMetrology implements D
     {
         if ($converter !== null) {
             $this->converter = new $converter($this);
-        } else if ($this->converter === null) {
-            $this->converter = new DigitalInformationConverter($this);
+        } else {
+            if ($this->converter === null) {
+                $this->converter = new DigitalInformationConverter($this);
+            }
         }
 
         return $this->converter;
@@ -53,8 +59,10 @@ abstract class AbstractDigitalInformation extends AbstractMetrology implements D
     {
         if ($observerManager !== null) {
             $this->observerManager = new $observerManager($this);
-        } else if ($this->observerManager === null) {
-            $this->observerManager = new DigitalInformationObserverManager($this);
+        } else {
+            if ($this->observerManager === null) {
+                $this->observerManager = new DigitalInformationObserverManager($this);
+            }
         }
 
         return $this->observerManager;
